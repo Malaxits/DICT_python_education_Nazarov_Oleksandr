@@ -16,7 +16,7 @@ print("Let`s test you.\nWhat is my name? ")
 print("1.Van! \n2. Billy!")
 while True:
     k = int(input(">"))
-    if k==1:
+    if k == 1:
         print("Cool, my name is Van!\nCongratulation,have a nice day!")
         break
     else:
