@@ -27,18 +27,3 @@ while play:
                 else:
                     print("That letter doesn't appear in the word")
                     life -= 1
-                words = "".join([i if i in remember_letters else "" for i in word])
-                print(words)
-                if len(all_letters) == 0:
-                    print("You guessed the word\nYou're lucky... this time")
-                    break
-            elif letter != letter.lower():
-                print("Please enter a lowercase English letter")
-            elif len(letter) != 1:
-                print("You should input a single letter")
-        if len(all_letters) > 0:
-            print("You DEAD!")
-    else:
-        exit = False
-        break
-print("thanks for playing\nCome again... if you want to die)")
