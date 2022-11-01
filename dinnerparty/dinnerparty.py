@@ -26,9 +26,3 @@ for p in payments.keys():
 if lucky:
     payments[lucky_name] = 0
 print(payments)
-
-
-
-
-
-
