@@ -1,6 +1,5 @@
 board = list(range(1,10))
 
-
 def draw_board(board):
     print("-" * 13)
     for i in range(3):
@@ -34,7 +33,6 @@ def check_win(board):
             return board[each[0]]
     return False
 
-
 def main(board):
     counter = 0
     win = False
@@ -55,6 +53,5 @@ def main(board):
             print("Draw!")
             break
     draw_board(board)
-
 
 main(board)
