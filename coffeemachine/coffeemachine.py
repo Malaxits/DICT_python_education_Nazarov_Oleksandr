@@ -23,3 +23,51 @@ class CoffeeMachine:
             coffee.milk -= need_milk
             coffee.cups -= 1
             coffee.money += take_money
+            def action(changes, command):
+                if command == "buy":
+                    changes.status = "make"
+                elif command == "fill":
+                    changes.status = "fill"
+                    changes.counter = 0
+                elif command == "take":
+                    print(f"I gave you {changes.money}")
+                    changes.money = 0
+                elif command == "remaining":
+                    print("The coffee machine has:")
+                    print(f"{changes.water} of water")
+                    print(f"{changes.milk} of milk")
+                    print(f"{changes.coffee} of coffee")
+                    print(f"{changes.cups} of disposable cups")
+                    print(f"{changes.money} of money")
+                elif changes.status == "make":
+
+                    try:
+                        type_of_coffee = int(command)
+                    except:
+                        type_of_coffee = 4
+                    if type_of_coffee == 4:
+                        changes.status = "wait"
+                        return
+                    elif type_of_coffee == 1:
+                        changes.__make_coffee(4, 250, 16)
+                    elif type_of_coffee == 2:
+                        changes.__make_coffee(7, 350, 20, 75)
+                    elif type_of_coffee == 3:
+                        changes.__make_coffee(6, 200, 10, 100)
+                    changes.status = "wait"
+                elif changes.status == "fill":
+                    v = int(command)
+                    if changes.counter == 0:
+                        changes.water += v
+                    elif changes.counter == 1:
+                        changes.coffee += v
+                    elif changes.counter == 2:
+                        changes.milk += v
+                    elif changes.counter == 3:
+                        changes.cups += v
+                        changes.status = "wait"
+                        changes.counter = -1
+                    changes.counter += 1
+                else:
+                    changes.status = "wait"
+        coffee_machine = CoffeeMachine()
